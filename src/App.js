@@ -34,6 +34,10 @@ function App() {
         <option value={'all'}>Show all</option>
         {Object.entries(recruiters).map(([id, recruiter]) => <option value={id}>{recruiter.name}</option>)}
       </select>
+
+      <div>Recruiter rating</div>
+      <div>Salary</div>
+      <div>Location</div>
       </div>
 
       <div class="flex-1">
