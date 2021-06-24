@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import './App.css';
+import JobListItem from './components/JobListItem'
 import matchedJobs from './data/matched_jobs.json'
 
 const { recruiters } = matchedJobs
@@ -11,15 +11,6 @@ const jobs = Object.entries(matchedJobs.jobs).map(([key, value]) => (
   }
 ))
 
-const currency = (amount) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumSignificantDigits: 2, maximumSignificantDigits: 2 }).format(amount)
-const Formatters = {
-  currency,
-}
-
-function JobSalary({ amount }) {
-  return amount ? <div>{Formatters.currency(amount)}</div> : null
-}
-
 function App() {
   const [filter, setFilter] = useState('all')
 
@@ -27,6 +18,7 @@ function App() {
     return recruiters[id]
   }
 
+  // TODO: Is there a better way to do this reactively?
   function filteredJobs () {
     if (filter === 'all') {
       return jobs
@@ -36,33 +28,25 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div>
-        Sidebar
-      </div>
-
+    <div className="flex m-8">
+      <div class="bg-grey-100 p-8">
       <select selected={filter} onChange={(event) => setFilter(event.target.value)}>
         <option value={'all'}>Show all</option>
         {Object.entries(recruiters).map(([id, recruiter]) => <option value={id}>{recruiter.name}</option>)}
       </select>
+      </div>
 
-      <h1>Job list</h1>
+      <div class="flex-1">
+
+      Search results: {filteredJobs().length}
 
       <ul>
         {filteredJobs().map((job) => {
           const recruiter = getRecruiter(job.placed_by)
-
-          return (
-          <li key={job.key}>
-            <h2>{job.title}</h2>
-            <h3>{job.location}</h3>
-            <JobSalary amount={job.salary} />
-            <div>Status: {job.status}</div>
-            <div>{recruiter.name}</div>
-          </li>
-          )
+          return <JobListItem key={job.key} job={job} recruiter={recruiter} />
         })}
       </ul>
+      </div>
     </div>
   );
 }
