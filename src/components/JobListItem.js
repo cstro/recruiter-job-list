@@ -61,18 +61,17 @@ function JobListItem({ job, recruiter }) {
           <TiLocationOutline className="text-gray-500 mr-1" />
           {job.location}
         </div>
-        {job.salary && (
-          <div className="flex flex-row items-center text-gray-700m ml-6">
-            <TiCreditCard className="text-gray-500 mr-1" />
-            {Formatters.currency(job.salary)}/year
-          </div>
-        )}
+
+        <div className="flex flex-row items-center text-gray-700m ml-6">
+          <TiCreditCard className="text-gray-500 mr-1" />
+          {job.salary !== null ? Formatters.currency(job.salary) : "-"}
+        </div>
       </div>
 
       <div className="mb-2">
         <div className="text-xs text-gray-500">Recruiter</div>
-        <div className="flex flex-row items-center">
-          <div className="mr-2">{recruiter.name}</div>
+        <div className="flex flex-col">
+          <div className="mb-1">{recruiter.name}</div>
           <div className="flex flex-row items-center">
             {Array(recruiter.rating)
               .fill(0)
@@ -87,7 +86,7 @@ function JobListItem({ job, recruiter }) {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      {/* <div className="grid grid-cols-3 gap-4">
         <div>
           <div className="text-xs text-gray-500">Live jobs</div>
           {recruiter.live_job_count}
@@ -96,7 +95,7 @@ function JobListItem({ job, recruiter }) {
           <div className="text-xs text-gray-500">Filled jobs</div>
           {recruiter.filled_job_count}
         </div>
-      </div>
+      </div> */}
     </li>
   )
 }
