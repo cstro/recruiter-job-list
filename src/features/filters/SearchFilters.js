@@ -1,16 +1,16 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import SelectableOption from "./SelectableOption"
 import {
   toggleStatusFilter,
   toggleSalaryFilter,
   toggleRatingFilter,
-} from "../jobsSlice"
+} from "./filtersSlice"
+import SelectableOption from "../../common/SelectableOption"
 
-function JobListFilters() {
-  const statusFilter = useSelector((state) => state.jobs.filters.status)
-  const salaryFilter = useSelector((state) => state.jobs.filters.salary)
-  const ratingFilter = useSelector((state) => state.jobs.filters.rating)
+function SearchFilters() {
+  const statusFilter = useSelector((state) => state.filters.status)
+  const salaryFilter = useSelector((state) => state.filters.salary)
+  const ratingFilter = useSelector((state) => state.filters.rating)
 
   const dispatch = useDispatch()
 
@@ -97,4 +97,4 @@ function JobListFilters() {
   )
 }
 
-export default JobListFilters
+export default SearchFilters
