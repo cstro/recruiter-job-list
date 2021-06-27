@@ -2,6 +2,8 @@
 
 The page shows a list of matched jobs with basic information like the job title and salary, along with the information of the job's recruiter. The data comes from a local json file `src/data.json`.
 
+Hosted through Netlify https://kind-davinci-fdb82b.netlify.app/
+
 ## Commands
 
 `yarn`
@@ -50,6 +52,12 @@ I used [Craco](https://github.com/gsoft-inc/craco) to allow me to extend the bas
 
 ## Testing approach
 
-- Unit test on utils
-- Integration style testing with testing library
-- Cypress testing on UI
+I used unit tests to test the utility functions within the application.
+
+I wrote cypress integration tests to test the main functionality of the application. I attempted to apply the principle of not testing the implementation details, but rather testing the user expected functionality of the application.
+
+## Things I'd do better
+
+- Use proper test data for the tests. As the data.json is hardcoded there are some tests that rely on certain data being there, or data appearing in a certain order which would be brittle in a real world app.
+- Extend the tests to cover more scenarios and edge cases. In this case I tried to ensure I had at least a vertical slice of tests, but what I've written definitely isn't exhaustive!
+- I would add the ability to sort and search the results. I wanted to add this initially but ran out of time to implement it properly.
