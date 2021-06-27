@@ -7,9 +7,9 @@ export const jobsSlice = createSlice({
   },
   reducers: {
     storeJobs: (state, action) => {
-      state.allJobs = Object.entries(action.payload).map(([key, job]) => ({
+      state.allJobs = Object.entries(action.payload).map(([id, job]) => ({
         ...job,
-        key,
+        id,
       }))
     },
   },

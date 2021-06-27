@@ -48,11 +48,11 @@ describe("Filters", () => {
   it("shows no results message when there are no matched", () => {
     cy.visit("localhost:3000")
 
-    // Setup toggles so that only one results, "Senior Electronics/PCB Design Engineer", is returned.
     cy.get("[type='checkbox'][name='expired']").click()
     cy.get("[type='checkbox'][name='closed']").click()
     cy.get("[type='checkbox'][name='position_filled']").click()
 
     cy.getBySel("job-list-item").should("have.length", 0)
+    cy.contains("No results found")
   })
 })

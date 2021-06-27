@@ -19,10 +19,18 @@ function StarRating({ rating, total }) {
   return (
     <div className="flex flex-row items-center">
       {activeStars.map((key) => (
-        <IoStarSharp key={key} className="inline-block text-yellow-300" />
+        <IoStarSharp
+          data-test="active-star"
+          key={key}
+          className="inline-block text-yellow-300"
+        />
       ))}
       {inactiveStars.map((key) => (
-        <IoStarSharp key={key} className="inline-block text-gray-300" />
+        <IoStarSharp
+          data-test="inactive-star"
+          key={key}
+          className="inline-block text-gray-300"
+        />
       ))}
     </div>
   )
