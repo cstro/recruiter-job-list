@@ -2,6 +2,24 @@
 
 The page shows a list of matched jobs with basic information like the job title and salary, along with the information of the job's recruiter. The data comes from a local json file `src/data.json`.
 
+## Commands
+
+`yarn`
+
+Install the dependencies.
+
+`yarn start`
+
+Start the local server which runs on localhost:3000 by default.
+
+`yarn test`
+
+Runs the unit tests.
+
+`yarn cypress:open`
+
+Opens the cypress runner and allows you to start the cypress tests. This is hardcoded to point to localhost:3000 in the tests so you need to also be running the dev server.
+
 ## Design
 
 ### UI
