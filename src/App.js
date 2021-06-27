@@ -4,25 +4,26 @@ import { selectFilteredJobs } from "./selectors"
 import JobList from "./features/jobs/JobList"
 import { storeJobs } from "./features/jobs/jobsSlice"
 import { storeRecruiters } from "./features/recruiters/recruitersSlice"
-import JobListFilters from "./features/filters/SearchFilters"
-import { jobs, recruiters } from "./data.json"
+import SearchFilters from "./features/filters/SearchFilters"
+import rawData from "./data.json"
 
 function App() {
-  const filteredJobs = useSelector(selectFilteredJobs)
+  const jobs = useSelector(selectFilteredJobs)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(storeJobs(jobs))
-    dispatch(storeRecruiters(recruiters))
+    dispatch(storeJobs(rawData.jobs))
+    dispatch(storeRecruiters(rawData.recruiters))
   }, [])
 
   return (
     <div className="flex p-8 bg-gray-50 min-h-screen">
-      <JobListFilters />
+      <SearchFilters />
       <div className="flex-1">
         <div className="flex justify-between items-center mb-4">
           <span className="font-bold">
-            Search results: {filteredJobs.length}
+            Search results:{" "}
+            <span data-test="search-result-count">{jobs.length}</span>
           </span>
           <div>
             <span className="text-sm text-gray-500">Sort by</span>

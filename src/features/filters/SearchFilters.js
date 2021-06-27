@@ -20,19 +20,19 @@ function SearchFilters() {
       <FilterGroup title="Recruiter rating">
         <SelectableOption
           label="5 stars"
-          value="five_star"
+          name="five_star"
           checked={ratingFilter.five_star}
           onChange={() => dispatch(toggleRatingFilter("five_star"))}
         />
         <SelectableOption
           label="4 stars"
-          value="four_star"
+          name="four_star"
           checked={ratingFilter.four_star}
           onChange={() => dispatch(toggleRatingFilter("four_star"))}
         />
         <SelectableOption
           label="3 stars"
-          value="three_star"
+          name="three_star"
           checked={ratingFilter.three_star}
           onChange={() => dispatch(toggleRatingFilter("three_star"))}
         />
@@ -41,25 +41,25 @@ function SearchFilters() {
       <FilterGroup title="Salary">
         <SelectableOption
           label="Under 30k"
-          value="under_30"
+          name="under_30"
           checked={salaryFilter.under_30}
           onChange={() => dispatch(toggleSalaryFilter("under_30"))}
         />
         <SelectableOption
-          label="30k - 40k"
-          value="between_30_45"
+          label="30k - 45k"
+          name="between_30_45"
           checked={salaryFilter.between_30_45}
           onChange={() => dispatch(toggleSalaryFilter("between_30_45"))}
         />
         <SelectableOption
           label="Over 45k"
-          value="over_45"
+          name="over_45"
           checked={salaryFilter.over_45}
           onChange={() => dispatch(toggleSalaryFilter("over_45"))}
         />
         <SelectableOption
           label="Unknown"
-          value="unknown"
+          name="unknown"
           checked={salaryFilter.unknown}
           onChange={() => dispatch(toggleSalaryFilter("unknown"))}
         />
@@ -68,19 +68,19 @@ function SearchFilters() {
       <FilterGroup title="Status">
         <SelectableOption
           label="Position filled"
-          value="position_filled"
+          name="position_filled"
           checked={statusFilter.position_filled}
           onChange={() => dispatch(toggleStatusFilter("position_filled"))}
         />
         <SelectableOption
           label="Expired"
-          value="expired"
+          name="expired"
           checked={statusFilter.expired}
           onChange={() => dispatch(toggleStatusFilter("expired"))}
         />
         <SelectableOption
           label="Closed"
-          value="closed"
+          name="closed"
           checked={statusFilter.closed}
           onChange={() => dispatch(toggleStatusFilter("closed"))}
         />

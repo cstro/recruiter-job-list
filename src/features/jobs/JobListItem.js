@@ -39,6 +39,7 @@ function JobListItemStatus({ status }) {
 
   return (
     <div
+      data-test="job-status"
       className={`text-${color}-500 bg-${color}-100 border-${color}-200 text-xs py-0.5 px-2 rounded-md inline-block border`}
     >
       {text}
@@ -56,7 +57,10 @@ function JobListItem({ job }) {
   )
 
   return (
-    <li className="bg-white rounded-sm p-6 shadow mb-6">
+    <li
+      className="bg-white rounded-sm p-6 shadow mb-6"
+      data-test="job-list-item"
+    >
       <JobListItemStatus status={job.status} />
       <h2 className="text-2xl mt-2 mb-6 text-gray-800 font-bold">
         {job.title}
