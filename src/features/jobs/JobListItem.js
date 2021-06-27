@@ -21,8 +21,8 @@ function JobListItem({ job }) {
       <h2 className="text-2xl mt-2 mb-6 text-gray-800 font-bold">
         {job.title}
       </h2>
-      <div className="flex flex-row mb-4">
-        <div>
+      <div className="flex flex-col sm:flex-col md:flex-row flex-wrap justify-between mb-4">
+        <div className="mb-2">
           <div className="text-xs flex flex-row">
             <span className="text-gray-500 mr-2">Recruiter</span>
             <StarRating rating={recruiter.rating} />
@@ -32,14 +32,14 @@ function JobListItem({ job }) {
             {recruiter.name}
           </div>
         </div>
-        <div className="ml-8">
+        <div className="mb-2">
           <div className="text-xs text-gray-500">Location</div>
           <div className="flex flex-row items-center text-gray-700m">
             <IoLocationSharp className="text-gray-500 mr-1" />
             {job.location}
           </div>
         </div>
-        <div className="ml-8">
+        <div className="mb-2">
           <div className="text-xs text-gray-500">Salary</div>
           <div className="flex flex-row items-center text-gray-700m">
             <IoCashSharp className="text-gray-500 mr-1" />
