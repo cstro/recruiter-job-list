@@ -23,4 +23,5 @@ const jobStatusMap = {
 
 export const getJobStatusText = (status) => jobStatusMap[status]?.text ?? status
 
-export const getJobStatusColor = (status) => jobStatusMap[status]?.color ?? status
+export const getJobStatusColor = (status) =>
+  jobStatusMap[status]?.color ?? status

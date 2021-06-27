@@ -22,5 +22,6 @@
   },
   "env": {
     "jest": true
-  }
+  },
+  "parser": "babel-eslint"
 }
