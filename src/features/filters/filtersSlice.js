@@ -19,7 +19,6 @@ export const filtersSlice = createSlice({
       four_star: true,
       three_star: true,
     },
-    sortBy: null,
   },
   reducers: {
     toggleSalaryFilter: (state, action) => {
